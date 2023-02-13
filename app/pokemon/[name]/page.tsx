@@ -3,6 +3,7 @@ import {
   getPokemonImage,
   getPokemonName,
 } from '@/utils/pokemon'
+import Image from 'next/image'
 
 export function generateMetadata({ params }: { params: { name: string } }) {
   const { name } = params
@@ -61,11 +62,12 @@ export default async function Pokemon({
         </li>
       </ul>
       <div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           className="aspect-square"
           src={getPokemonImage(pokemon)}
           alt={`${pokemon.name} official artwork`}
+          height={475}
+          width={475}
         />
       </div>
     </div>
