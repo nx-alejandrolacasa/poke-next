@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: 'PokéNext - Pokédex',
 }
 
-export default async function Podedex({
+export default async function Pokedex({
   searchParams,
 }: {
-  searchParams: { page: string }
+  searchParams?: { page: string }
 }) {
-  const { page = '1' } = searchParams
+  const { page = '1' } = searchParams ?? { page: '1' }
   const { count, results } = await fetchPokemonList(parseInt(page, 10))
 
   return (

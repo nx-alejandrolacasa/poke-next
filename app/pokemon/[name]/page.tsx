@@ -3,10 +3,19 @@ import {
   getPokemonImage,
   getPokemonName,
 } from '@/utils/pokemon'
-import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'PokéNext - Pokédex',
+export function generateMetadata({ params }: { params: { name: string } }) {
+  const { name } = params
+  return { title: `PokéNext - ${getPokemonName(name)}` }
+}
+
+export async function generateStaticParams() {
+  return [
+    { name: 'pikachu' },
+    { name: 'charmander' },
+    { name: 'squirtle' },
+    { name: 'bulbasaur' },
+  ]
 }
 
 export default async function Pokemon({
@@ -14,9 +23,13 @@ export default async function Pokemon({
 }: {
   params: { name: string }
 }) {
-  const { name = '' } = params
+  const { name } = params
 
-  const pokemon = await fetchPokemonByName(name)
+  if (!name) {
+    return null
+  }
+
+  const pokemon = await fetchPokemonByName(name, { next: { revalidate: 60 } })
 
   if (!pokemon) {
     return null
