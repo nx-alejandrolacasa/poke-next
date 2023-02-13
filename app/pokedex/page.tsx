@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'PokéNext - Pokédex',
+  description: 'Pokémon app developed with Next.js',
 }
 
 export default async function Pokedex({

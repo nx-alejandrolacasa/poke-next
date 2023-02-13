@@ -6,7 +6,10 @@ import {
 
 export function generateMetadata({ params }: { params: { name: string } }) {
   const { name } = params
-  return { title: `PokéNext - ${getPokemonName(name)}` }
+  return {
+    title: `PokéNext - ${getPokemonName(name)}`,
+    description: 'Pokémon app developed with Next.js',
+  }
 }
 
 export async function generateStaticParams() {
