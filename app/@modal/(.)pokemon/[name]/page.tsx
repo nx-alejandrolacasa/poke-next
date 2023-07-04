@@ -1,5 +1,6 @@
 import { getPokemonName } from '@/utils/pokemon'
 import { PokemonDetail } from '@/components/PokemonDetail'
+import { Modal } from '@/components/Modal'
 
 export function generateMetadata({ params }: { params: { name: string } }) {
   const { name } = params
@@ -9,21 +10,12 @@ export function generateMetadata({ params }: { params: { name: string } }) {
   }
 }
 
-export async function generateStaticParams() {
-  return [
-    { name: 'pikachu' },
-    { name: 'charmander' },
-    { name: 'squirtle' },
-    { name: 'bulbasaur' },
-  ]
-}
-
-export default async function Pokemon({
-  params,
-}: {
-  params: { name: string }
-}) {
+export default function Pokemon({ params }: { params: { name: string } }) {
   const { name } = params
 
-  return <PokemonDetail name={name} />
+  return (
+    <Modal>
+      <PokemonDetail name={name} />
+    </Modal>
+  )
 }

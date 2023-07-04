@@ -1,6 +1,7 @@
 'use client'
 
 import RCPagination from 'rc-pagination'
+import Link from 'next/link'
 
 type PaginationProps = {
   count: number
@@ -21,18 +22,18 @@ export function Pagination({ count, page }: PaginationProps) {
         }
         if (type === 'page') {
           return (
-            <a
+            <Link
               aria-label={`Go to page ${current}`}
               aria-current={current === page}
               className={`border ${
                 current === page
                   ? 'cursor-default border-slate-500'
                   : 'border-white hover:border-slate-500'
-              } rounded-md py-1 px-2`}
+              } rounded-md px-2 py-1`}
               href={href}
             >
               {current}
-            </a>
+            </Link>
           )
         }
       }}

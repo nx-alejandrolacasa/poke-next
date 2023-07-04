@@ -18,7 +18,7 @@ export default async function Pokedex({
 
   return (
     <>
-      <ul className="grid grid-cols-3 gap-4">
+      <ul className="grid grid-cols-3 gap-4 pb-8">
         {results.map((pokemon) => (
           <li className="list-none" key={pokemon.name}>
             <PokemonTile pokemon={pokemon} />

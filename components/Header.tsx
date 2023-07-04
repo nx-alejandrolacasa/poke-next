@@ -1,10 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export function Header() {
   return (
-    <div className="flex h-24 items-center justify-center bg-slate-100 px-4">
+    <header className="flex h-24 items-center justify-center bg-slate-200 px-4">
       <nav className="flex w-full max-w-5xl items-center justify-between gap-4">
-        <a href="/" title="Go home">
+        <Link href="/" title="Go home">
           <Image
             alt="Pokemon"
             className="h-16"
@@ -12,11 +13,11 @@ export function Header() {
             src="/pokemon-logo.svg"
             width={175}
           />
-        </a>
-        <a className="text-xl font-bold hover:underline" href="/pokedex">
+        </Link>
+        <Link className="text-xl font-bold hover:underline" href="/pokedex">
           Pokédex
-        </a>
+        </Link>
       </nav>
-    </div>
+    </header>
   )
 }

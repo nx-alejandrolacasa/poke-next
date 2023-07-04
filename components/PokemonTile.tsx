@@ -1,4 +1,6 @@
-import { Pokemon, getPokemonImage } from "@/utils/pokemon"
+import { Pokemon, getPokemonImage } from '@/utils/pokemon'
+import Link from 'next/link'
+import Image from 'next/image'
 
 type PokemonTileProps = {
   loading?: boolean
@@ -8,17 +10,18 @@ type PokemonTileProps = {
 export function PokemonTile({ loading = false, pokemon }: PokemonTileProps) {
   return (
     <div className="rounded-xl border border-white p-4 text-center shadow-lg hover:border-slate-500">
-      <a href={`/pokemon/${pokemon.name}`} title={pokemon.name}>
-        <span className="mb-4 block overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold capitalize">
+      <Link href={`/pokemon/${pokemon.name}`} title={pokemon.name}>
+        <span className="mb-4 block truncate text-xl font-bold capitalize">
           {pokemon.name.replaceAll('-', ' ')}
         </span>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="aspect-square"
-          src={loading ? '/loading.svg' : getPokemonImage(pokemon)}
+        <Image
           alt={`${pokemon.name} official artwork`}
+          className="aspect-square"
+          height={475}
+          src={loading ? '/loading.svg' : getPokemonImage(pokemon)}
+          width={475}
         />
-      </a>
+      </Link>
     </div>
   )
 }
