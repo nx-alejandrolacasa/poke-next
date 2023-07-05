@@ -20,13 +20,15 @@ export async function PokemonDetail({ name }: { name: string }) {
   }
 
   return (
-    <div className="flex w-full justify-between">
+    <div className="flex w-full flex-col justify-between md:flex-row">
       <div>
-        <h2 className="mb-4 block truncate text-4xl font-bold capitalize">
+        <h2 className="mb-4 block truncate text-2xl font-bold capitalize md:text-4xl">
           <span className="text-slate-500">#{pokemon.order}</span>&nbsp;
           {getPokemonName(name)}
         </h2>
-        <ul className={`${inter.className} flex flex-col gap-4 pt-10 text-2xl`}>
+        <ul
+          className={`${inter.className} flex flex-col gap-2 py-5 text-lg md:gap-4 md:pt-10 md:text-2xl`}
+        >
           <li>
             {pokemon.types.length > 1 ? 'Types' : 'Type'}:&nbsp;
             <b className="capitalize">
@@ -43,7 +45,7 @@ export async function PokemonDetail({ name }: { name: string }) {
       </div>
       <div>
         <Image
-          className="aspect-square"
+          className="mt-5 aspect-square rounded-2xl bg-slate-200 md:ml-10 md:mt-0"
           src={getPokemonImage(pokemon)}
           alt={`${pokemon.name} official artwork`}
           height={475}

@@ -44,13 +44,10 @@ export function Modal({ children }: ModalProps) {
   return (
     <div
       ref={overlay}
-      className="fixed inset-0 z-10 mx-auto bg-black/60"
+      className="fixed inset-0 z-10 mx-auto flex items-center justify-center bg-black/60"
       onClick={onClick}
     >
-      <div
-        ref={wrapper}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-white p-10"
-      >
+      <div ref={wrapper} className="max-w-[90vw] rounded-xl bg-white p-10">
         {children}
       </div>
     </div>
