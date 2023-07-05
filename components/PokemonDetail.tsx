@@ -23,6 +23,7 @@ export async function PokemonDetail({ name }: { name: string }) {
     <div className="flex w-full justify-between">
       <div>
         <h2 className="mb-4 block truncate text-4xl font-bold capitalize">
+          <span className="text-slate-500">#{pokemon.order}</span>&nbsp;
           {getPokemonName(name)}
         </h2>
         <ul className={`${inter.className} flex flex-col gap-4 pt-10 text-2xl`}>
@@ -33,13 +34,10 @@ export async function PokemonDetail({ name }: { name: string }) {
             </b>
           </li>
           <li>
-            Order: <b>{pokemon.order}</b>
+            Height: <b>{pokemon.height} dm.</b>
           </li>
           <li>
-            Height: <b>{pokemon.height}</b>
-          </li>
-          <li>
-            Weight: <b>{pokemon.weight}</b>
+            Weight: <b>{pokemon.weight} hg.</b>
           </li>
         </ul>
       </div>

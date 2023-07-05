@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 export function Header() {
   return (
-    <header className="flex h-24 items-center justify-center bg-slate-200 px-4">
-      <nav className="flex w-full max-w-5xl items-center justify-between gap-4">
+    <header className="flex h-20 items-center justify-center">
+      <nav className="flex w-full max-w-5xl items-center justify-between gap-4 px-6">
         <Link href="/" title="Go home">
           <Image
             alt="Pokemon"

@@ -1,9 +1,9 @@
-import { Sanchez } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 import { Header } from '@/components/Header'
 
 import './globals.css'
 
-const font = Sanchez({
+const font = Nunito({
   subsets: ['latin'],
   weight: '400',
 })
@@ -27,7 +27,7 @@ export default function RootLayout(props: {
           {props.children}
           {props.modal}
         </main>
-        <footer className="w-full bg-slate-200">
+        <footer className="w-full">
           <div className="mx-auto max-w-5xl p-6">
             Copyright &copy; nexum {new Date().getFullYear()}
           </div>
