@@ -14,11 +14,6 @@ export default function RootLayout(props: {
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-      </head>
       <body
         className={`${font.className} flex min-h-screen flex-col justify-between`}
       >
