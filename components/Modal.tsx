@@ -1,7 +1,8 @@
 'use client'
 
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { AnimatePresence, motion } from 'framer-motion'
 
 interface ModalProps {
   children: React.ReactNode
@@ -12,9 +13,11 @@ export function Modal({ children }: ModalProps) {
   const overlay = useRef<HTMLDivElement>(null)
   const wrapper = useRef<HTMLDivElement>(null)
 
+  const [show, setShow] = useState(true)
+
   const onDismiss = useCallback(() => {
-    router.back()
-  }, [router])
+    setShow(false)
+  }, [])
 
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -42,14 +45,42 @@ export function Modal({ children }: ModalProps) {
   }, [onDismiss])
 
   return (
-    <div
-      ref={overlay}
-      className="fixed inset-0 z-10 mx-auto flex items-center justify-center bg-black/60"
-      onClick={onClick}
-    >
-      <div ref={wrapper} className="max-w-[90vw] rounded-xl bg-white p-10">
-        {children}
-      </div>
-    </div>
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          ref={overlay}
+          className="fixed inset-0 z-10 mx-auto flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          onClick={onClick}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={{
+            initial: { opacity: 0 },
+            animate: { opacity: 1 },
+            exit: { opacity: 0 },
+          }}
+        >
+          <motion.div
+            ref={wrapper}
+            className="max-w-[90vw] rounded-xl bg-white p-10"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={{
+              initial: { scale: '95%', opacity: 0, y: '80px' },
+              animate: { scale: '100%', opacity: 1, y: 0 },
+              exit: { scale: '95%', opacity: 0, y: '80px' },
+            }}
+            onAnimationComplete={(definition) => {
+              if (definition === 'exit') {
+                router.back()
+              }
+            }}
+          >
+            {children}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
