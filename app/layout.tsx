@@ -3,6 +3,8 @@ import { Header } from '@/components/Header'
 
 import './globals.css'
 
+export const runtime = 'edge'
+
 const font = Nunito({
   subsets: ['latin'],
   weight: '400',
