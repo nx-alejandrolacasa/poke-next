@@ -1,9 +1,8 @@
 <p align="center">
-<a href=https://github.com/nx-alejandrolacasa/poke-next target="_blank">
-<img src='https://soshace.com/wp-content/uploads/2021/01/cover-879-png.png' width="100%" alt="Banner" />
+<a href="https://github.com/nx-alejandrolacasa/poke-next" target="_blank">
+<img src="./public/screenshot.png" width="100%" alt="Banner" />
 </a>
 </p>
-
 
 
 <p align="center">
