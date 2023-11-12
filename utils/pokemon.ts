@@ -31,7 +31,7 @@ export async function fetchPokemonList(page: number = 1): Promise<PokemonList> {
 
   const res = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=24&offset=${offset}`,
-    { cache: 'no-store' }
+    { cache: 'force-cache' }
   ).then((res) => res.json() as unknown as PokemonList)
 
   const results = await Promise.all(

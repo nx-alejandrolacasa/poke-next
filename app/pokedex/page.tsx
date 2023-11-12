@@ -1,7 +1,9 @@
+import type { Metadata } from 'next'
+import { Suspense } from 'react'
+import LoadingPokedex from '@/app/pokedex/loading'
+import { fetchPokemonList } from '@/utils/pokemon'
 import { Pagination } from '@/components/Pagination'
 import { PokemonTile } from '@/components/PokemonTile'
-import { fetchPokemonList } from '@/utils/pokemon'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'PokéNext - Pokédex',
@@ -17,7 +19,7 @@ export default async function Pokedex({
   const { count, results } = await fetchPokemonList(parseInt(page, 10))
 
   return (
-    <>
+    <Suspense fallback={<LoadingPokedex />}>
       <ul className="grid grid-cols-2 gap-4 pb-8 md:grid-cols-3">
         {results.map((pokemon) => (
           <li className="list-none" key={pokemon.name}>
@@ -28,6 +30,6 @@ export default async function Pokedex({
       <div className="my-4 flex justify-center">
         <Pagination count={count} page={parseInt(page, 10)} />
       </div>
-    </>
+    </Suspense>
   )
 }
