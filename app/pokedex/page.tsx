@@ -10,11 +10,12 @@ export const metadata: Metadata = {
   description: 'Pokémon app developed with Next.js',
 }
 
-export default async function Pokedex({
-  searchParams,
-}: {
-  searchParams?: { page: string }
-}) {
+export default async function Pokedex(
+  props: {
+    searchParams?: Promise<{ page: string }>
+  }
+) {
+  const searchParams = await props.searchParams;
   const { page = '1' } = searchParams ?? { page: '1' }
   const { count, results } = await fetchPokemonList(parseInt(page, 10))
 
