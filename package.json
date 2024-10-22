@@ -11,19 +11,19 @@
   "dependencies": {
     "@vercel/functions": "^1.4.2",
     "framer-motion": "12.0.0-alpha.1",
-    "next": "15.0.0-rc.1",
+    "next": "15.0.0",
     "rc-pagination": "~4.3.0",
-    "react": "19.0.0-rc-77b637d6-20241016",
-    "react-dom": "19.0.0-rc-77b637d6-20241016"
+    "react": "19.0.0-rc-65a56d0e-20241020",
+    "react-dom": "19.0.0-rc-65a56d0e-20241020"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "~4.0.0-alpha.27",
-    "@types/node": "~22.7.6",
-    "@types/react": "npm:types-react@19.0.0-alpha.3",
-    "@types/react-dom": "19.0.0-alpha.3",
+    "@tailwindcss/postcss": "~4.0.0-alpha.28",
+    "@types/node": "~22.7.8",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "autoprefixer": "~10.4.20",
     "eslint": "~8.56.0",
-    "eslint-config-next": "15.0.0-rc.1",
+    "eslint-config-next": "15.0.0",
     "eslint-plugin-prettier": "~5.2.1",
     "eslint-plugin-tailwindcss": "4.0.0-alpha.0",
     "postcss": "~8.4.47",
@@ -34,8 +34,8 @@
   },
   "pnpm": {
     "overrides": {
-      "@types/react": "npm:types-react@19.0.0-alpha.3",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-alpha.3"
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
     }
   }
 }
