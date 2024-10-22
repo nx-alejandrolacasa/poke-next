@@ -32,10 +32,10 @@ importers:
         version: 19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614)
     devDependencies:
       '@eslint/eslintrc':
-        specifier: ^3.1.0
+        specifier: ~3.1.0
         version: 3.1.0
       '@eslint/js':
-        specifier: ^9.13.0
+        specifier: ~9.13.0
         version: 9.13.0
       '@tailwindcss/postcss':
         specifier: ~4.0.0-alpha.28
