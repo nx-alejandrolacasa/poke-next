@@ -13,7 +13,7 @@ export async function PokemonDetail({ name }: { name: string }) {
     return null
   }
 
-  const pokemon = await fetchPokemonByName(name, { next: { revalidate: 360 } })
+  const pokemon = await fetchPokemonByName(name, { cache: 'force-cache' })
 
   if (!pokemon) {
     return null

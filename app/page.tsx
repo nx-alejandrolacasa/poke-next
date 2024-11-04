@@ -1,6 +1,6 @@
+import { Metadata } from 'next'
 import { PokemonTile } from '@/components/PokemonTile'
 import { fetchPokemonByName } from '@/utils/pokemon'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'PokéNext - Home',
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const pokemons = await Promise.all([
-    fetchPokemonByName('pikachu'),
-    fetchPokemonByName('charmander'),
-    fetchPokemonByName('squirtle'),
-    fetchPokemonByName('bulbasaur'),
+    fetchPokemonByName('pikachu', { cache: 'force-cache' }),
+    fetchPokemonByName('charmander', { cache: 'force-cache' }),
+    fetchPokemonByName('squirtle', { cache: 'force-cache' }),
+    fetchPokemonByName('bulbasaur', { cache: 'force-cache' }),
   ])
 
   return (
