@@ -1,11 +1,18 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import {
+  type MouseEvent,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { useRouter } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 
 interface ModalProps {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export function Modal({ children }: ModalProps) {
@@ -20,7 +27,7 @@ export function Modal({ children }: ModalProps) {
   }, [])
 
   const onClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+    (e: MouseEvent<HTMLDivElement>) => {
       if (e.target === overlay.current || e.target === wrapper.current) {
         if (onDismiss) {
           onDismiss()
