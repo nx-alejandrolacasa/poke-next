@@ -22,7 +22,7 @@ export async function PokemonDetail({ name }: { name: string }) {
   return (
     <div className="flex w-full flex-col justify-between md:flex-row">
       <div>
-        <h2 className="mb-4 block truncate text-2xl font-bold capitalize md:text-4xl">
+        <h2 className="font-heading block truncate text-2xl capitalize md:text-4xl">
           <span className="text-slate-500">#{pokemon.order}</span>&nbsp;
           {getPokemonName(name)}
         </h2>

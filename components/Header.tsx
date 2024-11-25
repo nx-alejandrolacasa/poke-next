@@ -8,13 +8,16 @@ export function Header() {
         <Link href="/" title="Go home">
           <Image
             alt="Pokemon"
-            className="h-16"
+            className="h-14 hover:h-16 transition-all"
             height={64}
             src="/pokemon-logo.svg"
             width={175}
           />
         </Link>
-        <Link className="text-xl font-bold hover:underline" href="/pokedex">
+        <Link
+          className="text-xl font-bold underline underline-offset-8 hover:underline-offset-2 transition-all"
+          href="/pokedex"
+        >
           Pokédex
         </Link>
       </nav>

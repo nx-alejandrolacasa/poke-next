@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-inter);
+  --font-heading: var(--font-borel);
+
+  --text-2xl--line-height: normal;
+  --text-4xl--line-height: normal;
+}
