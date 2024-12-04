@@ -6,11 +6,13 @@ import './globals.css'
 const borel = Borel({
   subsets: ['latin'],
   weight: '400',
+  variable: '--font-borel',
 })
 
 const inter = Inter({
   subsets: ['latin'],
   weight: '400',
+  variable: '--font-inter',
 })
 
 export default function RootLayout(props: {
@@ -18,20 +20,9 @@ export default function RootLayout(props: {
   modal: ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-            :root {
-              --font-inter: ${inter.style.fontFamily}, Arial, 'sans-serif';
-              --font-borel: ${borel.style.fontFamily}, Arial, 'sans-serif';
-            }`,
-          }}
-        />
-      </head>
+    <html lang="en" className={`${borel.variable} ${inter.variable}`}>
       <body
-        className={`font-display flex min-h-screen flex-col justify-between`}
+        className="font-display flex min-h-screen flex-col justify-between"
       >
         <Header />
         <main className="mx-auto w-full max-w-5xl flex-1 p-6">
