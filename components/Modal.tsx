@@ -1,5 +1,7 @@
 'use client'
 
+import { AnimatePresence, motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import {
   type MouseEvent,
   type ReactNode,
@@ -8,8 +10,6 @@ import {
   useRef,
   useState,
 } from 'react'
-import { useRouter } from 'next/navigation'
-import { AnimatePresence, motion } from 'framer-motion'
 
 interface ModalProps {
   children: ReactNode
@@ -34,7 +34,7 @@ export function Modal({ children }: ModalProps) {
         }
       }
     },
-    [overlay, wrapper, onDismiss]
+    [onDismiss]
   )
 
   useEffect(() => {

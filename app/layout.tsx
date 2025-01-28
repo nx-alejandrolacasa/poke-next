@@ -1,6 +1,6 @@
-import { Borel, Inter } from 'next/font/google'
 import { Header } from '@/components/Header'
-import { ReactNode } from 'react'
+import { Borel, Inter } from 'next/font/google'
+import type { ReactNode } from 'react'
 import './globals.css'
 
 const borel = Borel({
@@ -21,9 +21,7 @@ export default function RootLayout(props: {
 }) {
   return (
     <html lang="en" className={`${borel.variable} ${inter.variable}`}>
-      <body
-        className="font-display flex min-h-screen flex-col justify-between"
-      >
+      <body className="flex min-h-screen flex-col justify-between font-display">
         <Header />
         <main className="mx-auto w-full max-w-5xl flex-1 p-6">
           {props.children}

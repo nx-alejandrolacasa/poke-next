@@ -22,11 +22,11 @@ export async function fetchPokemonByName(
   name: string,
   init?: RequestInit
 ): Promise<Pokemon> {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon/' + name, init)
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, init)
   return res.json()
 }
 
-export async function fetchPokemonList(page: number = 1): Promise<PokemonList> {
+export async function fetchPokemonList(page = 1): Promise<PokemonList> {
   const offset = page > 0 ? (page - 1) * 24 : 1
 
   const res = await fetch(

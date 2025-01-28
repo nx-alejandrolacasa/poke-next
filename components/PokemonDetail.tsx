@@ -3,8 +3,8 @@ import {
   getPokemonImage,
   getPokemonName,
 } from '@/utils/pokemon'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +22,7 @@ export async function PokemonDetail({ name }: { name: string }) {
   return (
     <div className="flex w-full flex-col justify-between md:flex-row">
       <div>
-        <h2 className="font-heading block truncate text-2xl capitalize md:text-4xl">
+        <h2 className="block truncate font-heading text-2xl capitalize md:text-4xl">
           <span className="text-slate-500">#{pokemon.order}</span>&nbsp;
           {getPokemonName(name)}
         </h2>
@@ -45,7 +45,7 @@ export async function PokemonDetail({ name }: { name: string }) {
       </div>
       <div>
         <Image
-          className="mt-5 aspect-square rounded-2xl bg-slate-200 md:ml-10 md:mt-0"
+          className="mt-5 aspect-square rounded-2xl bg-slate-200 md:mt-0 md:ml-10"
           src={getPokemonImage(pokemon)}
           alt={`${pokemon.name} official artwork`}
           height={475}

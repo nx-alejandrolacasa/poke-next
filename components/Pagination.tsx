@@ -1,7 +1,7 @@
 'use client'
 
-import RCPagination from 'rc-pagination'
 import Link from 'next/link'
+import RCPagination from 'rc-pagination'
 
 type PaginationProps = {
   count: number
@@ -15,7 +15,7 @@ export function Pagination({ count, page }: PaginationProps) {
       defaultCurrent={page}
       defaultPageSize={24}
       itemRender={(current, type) => {
-        const href = current === 1 ? `/pokedex` : `/pokedex?page=${current}`
+        const href = current === 1 ? '/pokedex' : `/pokedex?page=${current}`
 
         if (type === 'jump-next' || type === 'jump-prev') {
           return <span className="cursor-default">...</span>

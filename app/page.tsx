@@ -1,6 +1,6 @@
-import { Metadata } from 'next'
 import { PokemonTile } from '@/components/PokemonTile'
 import { fetchPokemonByName } from '@/utils/pokemon'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'PokéNext - Home',

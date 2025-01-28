@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
-import { Suspense } from 'react'
 import LoadingPokedex from '@/app/pokedex/loading'
-import { fetchPokemonList } from '@/utils/pokemon'
 import { Pagination } from '@/components/Pagination'
 import { PokemonTile } from '@/components/PokemonTile'
+import { fetchPokemonList } from '@/utils/pokemon'
+import type { Metadata } from 'next'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'PokéNext - Pokédex',
@@ -16,7 +16,7 @@ type PokedexProps = {
 
 export default async function Pokedex({ searchParams }: PokedexProps) {
   const { page = '1' } = (await searchParams) ?? { page: '1' }
-  const { count, results } = await fetchPokemonList(parseInt(page, 10))
+  const { count, results } = await fetchPokemonList(Number.parseInt(page, 10))
 
   return (
     <Suspense fallback={<LoadingPokedex />}>
@@ -28,7 +28,7 @@ export default async function Pokedex({ searchParams }: PokedexProps) {
         ))}
       </ul>
       <div className="my-4 flex justify-center">
-        <Pagination count={count} page={parseInt(page, 10)} />
+        <Pagination count={count} page={Number.parseInt(page, 10)} />
       </div>
     </Suspense>
   )

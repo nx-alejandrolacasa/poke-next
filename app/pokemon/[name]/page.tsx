@@ -1,8 +1,10 @@
-import { getPokemonName } from '@/utils/pokemon'
 import { PokemonDetail } from '@/components/PokemonDetail'
+import { getPokemonName } from '@/utils/pokemon'
 
-export async function generateMetadata(props: { params: Promise<{ name: string }> }) {
-  const params = await props.params;
+export async function generateMetadata(props: {
+  params: Promise<{ name: string }>
+}) {
+  const params = await props.params
   const { name } = params
   return {
     title: `PokéNext - ${getPokemonName(name)}`,
@@ -19,12 +21,10 @@ export async function generateStaticParams() {
   ]
 }
 
-export default async function Pokemon(
-  props: {
-    params: Promise<{ name: string }>
-  }
-) {
-  const params = await props.params;
+export default async function Pokemon(props: {
+  params: Promise<{ name: string }>
+}) {
+  const params = await props.params
   const { name } = params
 
   return <PokemonDetail name={name} />
