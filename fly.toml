@@ -4,7 +4,7 @@
 #
 
 app = 'poke-next'
-primary_region = 'mad'
+primary_region = 'cdg'
 
 [build]
 
