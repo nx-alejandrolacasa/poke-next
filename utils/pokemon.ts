@@ -27,7 +27,7 @@ export async function fetchPokemonByName(
 }
 
 export async function fetchPokemonList(page = 1): Promise<PokemonList> {
-  const offset = page > 0 ? (page - 1) * 24 : 1
+  const offset = page > 1 ? (page - 1) * 24 : 0
 
   const res = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=24&offset=${offset}`,
@@ -35,7 +35,9 @@ export async function fetchPokemonList(page = 1): Promise<PokemonList> {
   ).then((res) => res.json() as unknown as PokemonList)
 
   const results = await Promise.all(
-    res.results.map(({ name }) => fetchPokemonByName(name))
+    res.results.map(({ name }) =>
+      fetchPokemonByName(name, { cache: 'force-cache' })
+    )
   )
 
   return {
